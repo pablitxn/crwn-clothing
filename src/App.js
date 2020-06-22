@@ -1,9 +1,9 @@
 import React from "react";
 // Custom Components
-import Header from "components/header/header.component.jsx";
-import HomePage from "./pages/homepage/homepage.component";
-import ShopPage from "pages/shop/shop.component";
-import SignInAndSignUpPage from "pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
+import Header from "components/header";
+import HomePage from "./pages/homepage";
+import ShopPage from "pages/shop";
+import SignInAndSignUpPage from "pages/sign-in-and-sign-up";
 // Router
 import { Switch, Route } from "react-router-dom";
 // Global Styles

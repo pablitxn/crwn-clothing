@@ -3,7 +3,7 @@ import React from "react";
 // Utils
 import SHOP_DATA from "./shop.data";
 // Custom Components
-import CollectionPreview from "components/collection-preview/collection-preview.component";
+import CollectionPreview from "components/collection-preview";
 
 class ShopPage extends React.Component {
 	constructor(props) {

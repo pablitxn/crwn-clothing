@@ -1,9 +1,9 @@
 // React App
 import React from "react";
 // Custom Components
-import CollectionItem from "components/collection-item/collection-item.component";
+import CollectionItem from "components/collection-item";
 // Styles
-import "./collection-preview.styles.scss";
+import "./styles.scss";
 
 const CollectionPreview = ({ title, items }) => (
 	<div>

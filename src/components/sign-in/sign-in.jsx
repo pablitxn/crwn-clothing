@@ -1,9 +1,9 @@
 import React from "react";
 // Custom Components
-import FormInput from "components/form-input/form-input.component";
-import CustomButton from "components/custom-button/custom-button.component";
+import FormInput from "components/form-input";
+import CustomButton from "components/custom-button";
 // Styles
-import "./sign-in.styles.scss";
+import "./styles.scss";
 
 class SignIn extends React.Component {
 	constructor(props) {

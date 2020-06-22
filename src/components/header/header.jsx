@@ -2,7 +2,7 @@ import React from "react";
 // Logo
 import { ReactComponent as Logo } from "assets/crown.svg";
 // Styles
-import "./header.styles.scss";
+import "./styles.scss";
 // Router
 import { Link } from "react-router-dom";
 

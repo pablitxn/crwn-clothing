@@ -1,13 +1,13 @@
 // React App
-import React from "react"
+import React from "react";
 // Custom component
-import MenuItem from "components/menu-item/menu-item.component"
+import MenuItem from "components/menu-item";
 // Styles
-import "./directory.styles.scss"
+import "./styles.scss";
 
 class Directory extends React.Component {
 	constructor() {
-		super()
+		super();
 
 		this.state = {
 			sections: [
@@ -39,7 +39,7 @@ class Directory extends React.Component {
 					id: 5,
 				},
 			],
-		}
+		};
 	}
 
 	render() {
@@ -49,8 +49,8 @@ class Directory extends React.Component {
 					<MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
 				))}
 			</div>
-		)
+		);
 	}
 }
 
-export default Directory
+export default Directory;
