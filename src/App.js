@@ -1,9 +1,9 @@
 import React from "react";
 // Custom Components
-import Header from "components/header";
-import HomePage from "./pages/homepage";
-import ShopPage from "pages/shop";
-import SignInAndSignUpPage from "pages/sign-in-and-sign-up";
+import Header from "components/Header";
+import HomePage from "pages/HomePage";
+import ShopPage from "pages/Shop";
+import Auth from "pages/Auth";
 // Router
 import { Switch, Route } from "react-router-dom";
 // Global Styles
@@ -16,7 +16,7 @@ function App() {
 			<Switch>
 				<Route exact path="/" component={HomePage} />
 				<Route path="/shop" component={ShopPage} />
-				<Route path="/signin" component={SignInAndSignUpPage} />
+				<Route path="/auth" component={Auth} />
 			</Switch>
 		</div>
 	);
