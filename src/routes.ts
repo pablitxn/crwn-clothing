@@ -10,7 +10,7 @@ import ShopContainer from "containers/Shop";
 
 export default [
   {
-    path: "/auth",
+    path: "/login",
     component: AuthContainer,
     routes: authRoutes,
   },
@@ -20,7 +20,7 @@ export default [
     routes: homeRoutes,
   },
   {
-    path: "/home",
+    path: "/shop",
     component: ShopContainer,
     routes: shopRoutes,
   },

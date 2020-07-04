@@ -7,6 +7,5 @@ export default [
   {
     path: "/home",
     component: Home,
-    exact: true,
   },
 ];

@@ -7,6 +7,5 @@ export default [
   {
     path: "/login",
     component: Auth,
-    exact: true,
   },
 ];
