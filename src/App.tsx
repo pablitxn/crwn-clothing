@@ -1,25 +1,30 @@
-import React from "react";
-// Custom Components
-import Header from "components/_shared/Header";
-import HomePage from "views/Home";
-import ShopPage from "views/Shop";
-import Auth from "views/Auth";
+import React, { FC } from "react";
 // Router
-import { Switch, Route } from "react-router-dom";
-// Global Styles
-import "./App.css";
+import { Switch, Route, Redirect } from "react-router-dom";
+import RouteWithSubRoutes from "components/_shared/RouteWithSubRoutes";
+import routes from "./routes";
+// Containers
+import HomeContainer from "containers/Home";
 
-function App() {
-	return (
-		<div>
-			<Header />
-			<Switch>
-				<Route exact path="/" component={HomePage} />
-				<Route path="/shop" component={ShopPage} />
-				<Route path="/auth" component={Auth} />
-			</Switch>
-		</div>
-	);
-}
+const App: FC = () => (
+	<Switch>
+		{routes.map((route, i) => (
+			<RouteWithSubRoutes key={`${i}_${route.path}`} {...route} />
+		))}
+		<Route
+			path="/"
+			render={() =>
+				localStorage.getItem("access_token") ? (
+					<HomeContainer />
+				) : (
+						<Redirect to="/login" />
+					)
+			}
+		/>
+		<Route path="*">
+			<Redirect to="/" />
+		</Route>
+	</Switch>
+);
 
 export default App;
