@@ -1,9 +1,11 @@
 // React App
-import React from "react";
+import React, { FC } from "react";
+// Types
+import { MenuItemProps } from "./types"
 // Styles
 import "./styles.scss";
 
-const MenuItem = ({ title, imageUrl, size }) => (
+const MenuItem: FC<MenuItemProps> = ({ title, imageUrl, size }) => (
 	<div className={`${size} menu-item`}>
 		<div
 			className="background-image"

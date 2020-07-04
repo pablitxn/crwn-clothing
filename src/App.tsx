@@ -1,9 +1,9 @@
 import React from "react";
 // Custom Components
-import Header from "components/Header";
-import HomePage from "pages/HomePage";
-import ShopPage from "pages/Shop";
-import Auth from "pages/Auth";
+import Header from "components/_shared/Header";
+import HomePage from "views/Home";
+import ShopPage from "views/Shop";
+import Auth from "views/Auth";
 // Router
 import { Switch, Route } from "react-router-dom";
 // Global Styles
