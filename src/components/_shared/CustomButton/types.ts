@@ -1,8 +1,10 @@
 // React Types
-import { ReactNode } from "react";
+import React from "react";
 
 export interface CustomButtonProps {
-  childen: ReactNode;
+  children: React.ReactNode;
   className: string;
-  onClick: () => {}
+  type?: string;
+  // TODO: afinar esta prop
+  onClick: any;
 }
