@@ -1,11 +1,13 @@
 // React App
-import React from "react";
+import React, { FC } from "react";
 // Custom Components
-import Directory from "components/HomePage/Directory";
+import Directory from "components/Home/Directory";
+// Redux
+// import { DirectorySectionsSelector } from "state/"
 // Styles
 import "./styles.scss";
 
-const HomePage = () => {
+const Home: FC = () => {
 	const sections = [{
 		title: "lorem",
 		imageUrl: "",
@@ -13,10 +15,10 @@ const HomePage = () => {
 	}]
 
 	return (
-		<div className="homepage">
+		<div className="home">
 			<Directory sections={sections} />
 		</div>
 	);
 }
 
-export default HomePage;
+export default Home;
