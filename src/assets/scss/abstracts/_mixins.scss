@@ -27,3 +27,9 @@
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
+
+@mixin shrinkLabel {
+  top: -14px;
+  font-size: 12px;
+  color: $main-color;
+}

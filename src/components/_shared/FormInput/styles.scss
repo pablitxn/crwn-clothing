@@ -1,19 +1,14 @@
-// TODO: pasar a rem y centralizar funciones, vars y mixins
+@import "assets/scss/main";
 
-$sub-color: grey;
-$main-color: black;
-
-@mixin shrinkLabel {
-  top: -14px;
-  font-size: 12px;
-  color: $main-color;
-}
-
-.group {
+.input {
   position: relative;
-  margin: 45px 0;
+  margin: to-rem("45px") 0;
 
-  .form-input {
+  .shrink {
+    @include shrinkLabel();
+  }
+
+  &__field {
     background: none;
     background-color: white;
     color: $sub-color;
@@ -39,7 +34,7 @@ $main-color: black;
     letter-spacing: 0.3em;
   }
 
-  .form-input-label {
+  &__label {
     color: $sub-color;
     font-size: 16px;
     font-weight: normal;
@@ -48,9 +43,5 @@ $main-color: black;
     left: 5px;
     top: 10px;
     transition: 300ms ease all;
-
-    &.shrink {
-      @include shrinkLabel();
-    }
   }
 }
