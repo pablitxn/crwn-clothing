@@ -3,14 +3,12 @@ import React, { FC, useState } from "react";
 // Custom Components
 import FormInput from "components/_shared/FormInput";
 import CustomButton from "components/_shared/CustomButton";
-// Firebase
-import { signInWithGoogle } from "utils/firebase"
 //Types
-import { LoginFormProps } from "components/Auth/LoginForm/types";
+import { SignInFormProps } from "components/Session/SignInForm/types";
 // Styles
 import "./styles.scss";
 
-const LoginForm: FC<LoginFormProps> = ({ onSubmit }) => {
+const SignInForm: FC<SignInFormProps> = ({ onSubmit, onGoogleSignIn }) => {
 	const [state, setState] = useState({
 		email: "",
 		password: ""
@@ -56,12 +54,13 @@ const LoginForm: FC<LoginFormProps> = ({ onSubmit }) => {
 					label="password"
 				/>
 				<div className="form__submit">
-					<CustomButton className="form__button" type="submit" onClick={handleSubmit}>Sign In</CustomButton>
-					<CustomButton className="form__button" onClick={signInWithGoogle}>Sign In With Google</CustomButton>
+					{/** TODO: revisar estas clases */}
+					<CustomButton className="form__button custom-button--normal" type="submit" onClick={handleSubmit}>Sign In</CustomButton>
+					<CustomButton className="form__button custom-button--google-login" onClick={onGoogleSignIn}>Sign In With Google</CustomButton>
 				</div>
 			</form>
 		</div>
 	);
 }
 
-export default LoginForm;
+export default SignInForm;

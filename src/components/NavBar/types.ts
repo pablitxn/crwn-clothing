@@ -1,5 +1,5 @@
-export interface CartDropdownProps {
-  activeUser: any;
-  hidden: any;
-  loginButton: any;
+export interface NavbarProps {
+  activeUser?: boolean;
+  hidden?: boolean;
+  loginButton?: any;
 }

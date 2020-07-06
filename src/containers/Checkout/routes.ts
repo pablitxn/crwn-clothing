@@ -1,11 +1,12 @@
+// React Lazy
 import { lazy } from "react";
 
 // Containers
-const Home = lazy(() => import("views/Site/Sections"));
+const Checkout = lazy(() => import("views/Checkout"));
 
 export default [
   {
-    path: "/home",
-    component: Home,
+    path: "/checkout",
+    component: Checkout,
   },
 ];

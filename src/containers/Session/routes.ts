@@ -1,11 +1,12 @@
+// React Lazy
 import { lazy } from "react";
 
 // Containers
-const Auth = lazy(() => import("views/Auth"));
+const Session = lazy(() => import("views/Session"));
 
 export default [
   {
-    path: "/login",
-    component: Auth,
+    path: "/session",
+    component: Session,
   },
 ];

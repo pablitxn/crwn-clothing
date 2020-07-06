@@ -1,7 +1,7 @@
 // Redux Ducks
-import authDuck from "state/auth";
-import * as types from "state/auth/types";
+import sessionDuck from "state/session";
+import * as types from "state/session/types";
 
-export const requestLogin = authDuck.createAction(types.LOGIN_REQUEST);
-export const successLogin = authDuck.createAction(types.LOGIN_SUCCESS);
-export const failureLogin = authDuck.createAction(types.LOGIN_FAILURE);
+export const requestLogin = sessionDuck.createAction(types.LOGIN_REQUEST);
+export const successLogin = sessionDuck.createAction(types.LOGIN_SUCCESS);
+export const failureLogin = sessionDuck.createAction(types.LOGIN_FAILURE);

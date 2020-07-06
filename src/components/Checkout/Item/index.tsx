@@ -1,11 +1,11 @@
 // React
 import React, { FC } from "react";
 // Types
-import { CartItemProps } from "./types";
+import { CheckoutItemProps } from "./types";
 // Styles
 import "./styles.scss";
 
-const CartItem: FC<CartItemProps> = ({ cartItem, clearItem, addItem, removeItem }) => {
+const CheckoutItem: FC<CheckoutItemProps> = ({ cartItem, clearItem, addItem, removeItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
 
   return (
@@ -27,4 +27,4 @@ const CartItem: FC<CartItemProps> = ({ cartItem, clearItem, addItem, removeItem 
   )
 }
 
-export default CartItem;
+export default CheckoutItem;

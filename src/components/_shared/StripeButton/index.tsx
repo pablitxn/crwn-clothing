@@ -5,11 +5,12 @@ import { StripeButtonProps } from "./types";
 // Styles
 import "./styles.scss"
 
-const StripeButton: FC<StripeButtonProps> = ({ onClick = () => { } }) => {
+const StripeButton: FC<StripeButtonProps> = ({ onClick }) => {
 
   const handleButton = (event: any) => {
     event.preventDefault();
-    onClick();
+    //   onClick();
+    // }
   }
 
   return (

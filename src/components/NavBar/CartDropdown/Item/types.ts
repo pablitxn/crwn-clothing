@@ -1,5 +1,5 @@
 // TODO: resolver tipado
-export interface CartDropdownItemProps {
+export interface ItemProps {
   item: {
     imageUrl: any;
     price: any;

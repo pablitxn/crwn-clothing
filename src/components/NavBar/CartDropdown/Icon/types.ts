@@ -1,4 +1,4 @@
-export interface CartDropdownIconProps {
+export interface IconProps {
   toggleCartHidden: any;
   itemCount: any;
 }

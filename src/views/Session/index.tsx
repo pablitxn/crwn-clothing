@@ -1,27 +1,24 @@
 // React App
 import React, { FC } from "react";
 // Custom Components
-import LoginForm from "components/Auth/LoginForm";
-import SignUpForm from "components/Auth/SignUpForm";
+import SignInForm from "components/Session/SignInForm";
+import SignUpForm from "components/Session/SignUpForm";
 // Redux
-import { requestLogin, requestSignUp } from "state/auth/actions";
-import { LoginSelector, SignUpSelector } from "state/auth/selectors";
-// Types
-import { AccountTypes } from "components/Auth/LoginForm/types"
+// import { requestLogin, requestSignUp } from "state/auth/actions";
+// import { LoginSelector, SignUpSelector } from "state/auth/selectors";
 // Styles
 import "./styles.scss";
 
-const Auth = () => {
-	const handleSubmit = (account: AccountTypes) => {
-		console.log(account)
+const Session: FC = () => {
+	const handleSubmit = () => {
 	}
 
 	return (
-		<div className="auth">
-			<LoginForm onSubmit={handleSubmit} error={false} isLoading={false} />
-			<SignUpForm onSubmit={handleSubmit} error={false} isLoading={false} />
+		<div className="session">
+			<SignInForm onSubmit={handleSubmit} onGoogleSignIn={handleSubmit} />
+			<SignUpForm onSubmit={handleSubmit} />
 		</div>
 	)
 };
 
-export default Auth;
+export default Session;

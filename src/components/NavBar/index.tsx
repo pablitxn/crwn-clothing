@@ -1,14 +1,18 @@
 // React
 import React, { FC } from "react";
 // Custom Components
-import CartDropdown from "components/_shared/NavBar/CartDropdown";
-import CartDropdownIcon from "components/_shared/NavBar/CartDropdown/CartDropdownIcon";
+import CartDropdown from "components/Navbar/CartDropdown/Container";
+import CartDropdownIcon from "components/Navbar/CartDropdown/Icon";
 // Types
-import { NavBarProps } from "./types";
+import { NavbarProps } from "./types";
 // Styles
 import "./styles.scss";
 
-const NavBar: FC<NavBarProps> = ({ activeUser, hidden, loginButton }) => {
+const Navbar: FC<NavbarProps> = ({ activeUser, hidden, loginButton = () => { } }) => {
+
+  const handleClick = (event: any) => {
+    loginButton();
+  }
 
   return (
     <nav className="navbar">
@@ -17,10 +21,10 @@ const NavBar: FC<NavBarProps> = ({ activeUser, hidden, loginButton }) => {
         <ul>SHOP</ul>
         <ul>CONTACT</ul>
         {activeUser ? (
-          <ul>{activeUser.name}</ul>
+          <ul>MI CUENTA</ul>
         )
           : (
-            <ul>SIG IN</ul>
+            <ul onClick={handleClick}>SIG IN</ul>
           )
         }
         <ul>
@@ -32,4 +36,4 @@ const NavBar: FC<NavBarProps> = ({ activeUser, hidden, loginButton }) => {
   )
 }
 
-export default NavBar;
+export default Navbar;

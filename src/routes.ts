@@ -1,27 +1,28 @@
 // Routes
-import authRoutes from "containers/Auth/routes";
-import homeRoutes from "containers/Home/routes";
+import sessionRoutes from "containers/Session/routes";
+import checkoutRoutes from "containers/Checkout/routes";
 import shopRoutes from "containers/Shop/routes";
 
 // Containers
-import AuthContainer from "containers/Auth";
-import HomeContainer from "containers/Home";
+import SessionContainer from "containers/Session";
+import CheckoutContainer from "containers/Checkout";
 import ShopContainer from "containers/Shop";
 
 export default [
   {
-    path: "/login",
-    component: AuthContainer,
-    routes: authRoutes,
-  },
-  {
-    path: "/home",
-    component: HomeContainer,
-    routes: homeRoutes,
-  },
-  {
-    path: "/shop",
+    path: "/",
     component: ShopContainer,
     routes: shopRoutes,
+    exact: true
+  },
+  {
+    path: "/session",
+    component: SessionContainer,
+    routes: sessionRoutes,
+  },
+  {
+    path: "/checkout",
+    component: CheckoutContainer,
+    routes: checkoutRoutes,
   },
 ];

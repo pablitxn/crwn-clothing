@@ -1,17 +1,18 @@
+// @ts-nocheck
 // React
 import React, { FC } from "react";
 // Custom Components
-import CartItem from "components/Site/Cart/CartItem";
+import CartItem from "components/Navbar/CartDropdown/Item";
 // Types
-import { CartDropdownProps } from "./types";
+// import { ContainerProps } from "./types";
 // Styles
 import "./styles.scss"
 
-const CartDropdown: FC<CartDropdownProps> = ({ cartItems, navigationButton, handleDropdown }) => {
+const Container: FC = ({ cartItems }) => {
   const handleClick = (event: any) => {
-    event.preventDefault();
-    navigationButton();
-    handleDropdown();
+    // event.preventDefault();
+    // navigationButton();
+    // handleDropdown();
   }
 
   return (
@@ -30,4 +31,4 @@ const CartDropdown: FC<CartDropdownProps> = ({ cartItems, navigationButton, hand
   )
 }
 
-export default CartDropdown;
+export default Container;

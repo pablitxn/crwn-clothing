@@ -1,6 +1,6 @@
 // Redux Ducks
-import authDuck from "state/auth";
-import * as types from "state/auth/types";
+import sessionDuck from "state/session";
+import * as types from "state/session/types";
 
 const initialState = {
   login: {
@@ -10,7 +10,7 @@ const initialState = {
   }
 };
 
-const reducer = authDuck.createReducer({
+const reducer = sessionDuck.createReducer({
   [types.LOGIN_REQUEST]: (state) => ({
     ...state,
     login: {

@@ -1,18 +1,18 @@
 // React App
 import React, { FC } from "react";
 // Custom Components
-import CardProducts from "components/Site/Shop/Preview";
+import OverviewItem from "components/Shop/Overview";
 // Utils
 import SHOP_DATA from "utils/shop.data";
 // Redux
 // import requestProducts from "state/shop/actions";
 // import shopDataSelector from "state/shop/selectors;"
 // Styles
-import ".styles.scss";
+import "./styles.scss";
 
 // TODO: tipado
-const Shop: FC = ({ collection }: any) => {
-	const { title, items } = collection;
+const Overview: FC = () => {
+	// const { title, items } = collection;
 
 	return (
 		<div className="shop">
@@ -21,7 +21,7 @@ const Shop: FC = ({ collection }: any) => {
 				{SHOP_DATA.map((data, index) => {
 					const items = data.items;
 					return (
-						<CardProducts key={index} title="Ofers" items={items} />
+						<OverviewItem key={index} sections={items} />
 					)
 				})}
 			</div>
@@ -29,4 +29,8 @@ const Shop: FC = ({ collection }: any) => {
 	);
 }
 
-export default Shop;
+export default Overview;
+
+/**
+ * talvez falta title en overview?
+ */

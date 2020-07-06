@@ -1,12 +1,12 @@
 // React
 import React, { FC } from "react";
 // Types
-import { CartDropdownIconProps } from "./types"
+import { IconProps } from "./types"
 // Styles
 import "./styles.scss";
 
 
-const CartDropdownIcon: FC<CartDropdownIconProps> = ({ toggleCartHidden, itemCount }) => {
+const Icon: FC<IconProps> = ({ toggleCartHidden, itemCount }) => {
 
   return (
     <div className="cart-icon" onClick={toggleCartHidden}>
@@ -16,4 +16,4 @@ const CartDropdownIcon: FC<CartDropdownIconProps> = ({ toggleCartHidden, itemCou
   )
 }
 
-export default CartDropdownIcon;
+export default Icon;

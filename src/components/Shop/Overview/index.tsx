@@ -1,7 +1,8 @@
+// @ts-nocheck
 // React App
 import React, { FC } from "react";
 // Custom component
-import MenuItem from "components/Site/Shop/Overview/Section";
+import Section from "components/Shop/Overview/Section";
 // Types
 import { DirectoryProps } from "./types"
 // Styles
@@ -11,8 +12,8 @@ const Directory: FC<DirectoryProps> = ({ sections }) => {
 
 	return (
 		<div className="section">
-			{sections.map(({ title, imageUrl, id, size }) => (
-				<MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+			{sections.map((section, i) => (
+				<Section key={i} section={section} />
 			))}
 		</div>
 	);

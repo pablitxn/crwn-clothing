@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 // Custom Components
-import DetailProduct from "components/Site/Shop/Preview/Product";
+import DetailProduct from "components/Shop/Preview/Product";
 // Types
 import { CardProductProps } from "./types"
 // Styles

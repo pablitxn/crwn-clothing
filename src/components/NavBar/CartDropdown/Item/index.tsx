@@ -1,11 +1,11 @@
 // React
 import React, { FC } from "react";
 // Types
-import { CartDropdownItemProps } from "./types";
+import { ItemProps } from "./types";
 // Styles
 import "./styles.scss";
 
-const CartDropdownItem: FC<CartDropdownItemProps> = ({ item: { imageUrl, price, name, quantity } }) => {
+const Item: FC<ItemProps> = ({ item: { imageUrl = "", price = 0, name = "", quantity = 0 } }) => {
 
   return (
     <div className="cart-item">
@@ -20,4 +20,4 @@ const CartDropdownItem: FC<CartDropdownItemProps> = ({ item: { imageUrl, price, 
   )
 }
 
-export default CartDropdownItem;
+export default Item;

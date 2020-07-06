@@ -2,6 +2,6 @@
 import Duck from "redux-ducks-ts";
 
 // Duck definition
-const authDuck = new Duck("auth", "crwn-clothing");
+const sessionDuck = new Duck("session", "crwn-clothing");
 
-export default authDuck;
+export default sessionDuck;

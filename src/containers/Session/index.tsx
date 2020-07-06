@@ -1,13 +1,13 @@
 // React
 import React, { FC, Suspense } from "react";
 // Components
-import RouteWithSubRoutes from "components/_shared/RouteWithSubRoutes";
+import RouteWithSubRoutes from "containers/RouteWithSubRoutes";
 import SuspenseLoader from "components/_shared/SuspenseLoader";
 // Router
 import { Switch } from "react-router-dom";
 import routes from "./routes";
 
-const AuthContainer: FC<React.LazyExoticComponent<React.FC>> = () => (
+const SessionContainer: FC = () => (
   <Suspense fallback={<SuspenseLoader />}>
     <Switch>
       {routes.map((route, i) => (
@@ -17,4 +17,4 @@ const AuthContainer: FC<React.LazyExoticComponent<React.FC>> = () => (
   </Suspense>
 );
 
-export default AuthContainer;
+export default SessionContainer;

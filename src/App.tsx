@@ -1,10 +1,11 @@
+// React
 import React, { FC } from "react";
 // Router
 import { Switch, Route, Redirect } from "react-router-dom";
-import RouteWithSubRoutes from "components/_shared/RouteWithSubRoutes";
+import RouteWithSubRoutes from "containers/RouteWithSubRoutes";
 import routes from "./routes";
 // Containers
-import HomeContainer from "containers/Home";
+import ShopContainer from "containers/Shop";
 
 const App: FC = () => (
 	<Switch>
@@ -15,7 +16,7 @@ const App: FC = () => (
 			path="/"
 			render={() =>
 				localStorage.getItem("access_token") ? (
-					<HomeContainer />
+					<ShopContainer />
 				) : (
 						<Redirect to="/login" />
 					)

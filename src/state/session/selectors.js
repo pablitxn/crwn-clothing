@@ -2,6 +2,6 @@
 import { createSelector } from "reselect";
 
 // Reducers
-const AuthReducer = ({ Auth }) => Auth;
+const sessionReducer = ({ session }) => session;
 
-export const loginSelector = createSelector([AuthReducer], Auth => Auth.login);
+export const loginSelector = createSelector([sessionReducer], session => session.login);
