@@ -6,26 +6,30 @@ import RouteWithSubRoutes from "containers/RouteWithSubRoutes";
 import routes from "./routes";
 // Containers
 import ShopContainer from "containers/Shop";
+import Navbar from "views/Navbar";
 
 const App: FC = () => (
-	<Switch>
-		{routes.map((route, i) => (
-			<RouteWithSubRoutes key={`${i}_${route.path}`} {...route} />
-		))}
-		<Route
-			path="/"
-			render={() =>
-				localStorage.getItem("access_token") ? (
-					<ShopContainer />
-				) : (
-						<Redirect to="/login" />
-					)
-			}
-		/>
-		<Route path="*">
-			<Redirect to="/" />
-		</Route>
-	</Switch>
+	<>
+		<Navbar />
+		<Switch>
+			{routes.map((route, i) => (
+				<RouteWithSubRoutes key={`${i}_${route.path}`} {...route} />
+			))}
+			<Route
+				path="/"
+				render={() =>
+					localStorage.getItem("access_token") ? (
+						<ShopContainer />
+					) : (
+							<Redirect to="/login" />
+						)
+				}
+			/>
+			<Route path="*">
+				<Redirect to="/" />
+			</Route>
+		</Switch>
+	</>
 );
 
 export default App;

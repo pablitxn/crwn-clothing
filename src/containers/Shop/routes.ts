@@ -2,17 +2,17 @@
 import { lazy } from "react";
 
 // Containers
-const Overview = lazy(() => import("views/Shop/Overview"));
-const Preview = lazy(() => import("views/Shop/Preview"));
+const Sections = lazy(() => import("views/Shop/Sections"));
+const Products = lazy(() => import("views/Shop/Products"));
 
 export default [
   {
     path: "/",
-    component: Overview,
+    component: Sections,
     exact: true
   },
   {
-    path: "/preview",
-    component: Preview,
+    path: "/products",
+    component: Products,
   },
 ];

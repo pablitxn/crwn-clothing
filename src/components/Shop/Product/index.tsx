@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 // Types
-import { DetailProductProps } from "./types"
+import { ProductProps } from "./types"
 // Styles
 import "./styles.scss";
 
-const DetailProduct: FC<DetailProductProps> = ({ item, addItem }) => {
+const Product: FC<ProductProps> = ({ item, addItem }) => {
 	const { name, price, imageUrl } = item;
 
 	return (
@@ -26,6 +26,6 @@ const DetailProduct: FC<DetailProductProps> = ({ item, addItem }) => {
 	);
 };
 
-export default DetailProduct;
+export default Product;
 
 // TODO: revisar BEM, button-custom. revisar

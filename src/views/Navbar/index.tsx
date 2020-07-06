@@ -11,8 +11,10 @@ import "./styles.scss"
 
 const NavbarView: FC = () => {
 
+  const handleLogin = () => { }
+
   return (
-    <Navbar />
+    <Navbar activeUser={false} hidden={true} loginButton={handleLogin} />
   )
 }
 
