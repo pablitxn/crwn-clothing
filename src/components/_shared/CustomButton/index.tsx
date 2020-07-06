@@ -12,3 +12,8 @@ const CustomButton: FC<CustomButtonProps> = ({ children, onClick, className = ""
 );
 
 export default CustomButton;
+
+/**
+ * TODO: apartir de las props, determinar el modificador del boton:
+ * 'inverted, googlelogin, etc'
+ */

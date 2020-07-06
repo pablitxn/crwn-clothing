@@ -1,7 +1,11 @@
 // React App
-import React from "react";
+import React, { FC } from "react";
 // Custom Components
 import LoginForm from "components/Auth/LoginForm";
+import SignUpForm from "components/Auth/SignUpForm";
+// Redux
+import { requestLogin, requestSignUp } from "state/auth/actions";
+import { LoginSelector, SignUpSelector } from "state/auth/selectors";
 // Types
 import { AccountTypes } from "components/Auth/LoginForm/types"
 // Styles
@@ -15,6 +19,7 @@ const Auth = () => {
 	return (
 		<div className="auth">
 			<LoginForm onSubmit={handleSubmit} error={false} isLoading={false} />
+			<SignUpForm onSubmit={handleSubmit} error={false} isLoading={false} />
 		</div>
 	)
 };

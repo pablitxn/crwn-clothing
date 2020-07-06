@@ -1,7 +1,7 @@
 import { lazy } from "react";
 
 // Containers
-const Shop = lazy(() => import("views/Shop"));
+const Shop = lazy(() => import("views/Site/Shop"));
 
 export default [
   {
