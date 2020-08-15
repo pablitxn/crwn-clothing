@@ -4,7 +4,7 @@ import React, { FC } from "react";
 // import CheckoutItem from "components/Checkout/Item";
 // import StripeButton from "components/_shared/StripeButton"
 // Redux
-import cartItems from "utils/shop.data";
+// import cartItems from "utils";
 // import request from "state//actions";
 // import { selectors } from "state//selectors";
 // Styles

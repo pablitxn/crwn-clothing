@@ -1,4 +1,39 @@
-const SHOP_DATA = [
+export const sections: any = [
+	{
+		title: "hats",
+		imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
+		id: 1,
+		linkUrl: "shop/hats",
+	},
+	{
+		title: "jackets",
+		imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
+		id: 2,
+		linkUrl: "shop/jackets",
+	},
+	{
+		title: "sneakers",
+		imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
+		id: 3,
+		linkUrl: "shop/sneakers",
+	},
+	{
+		title: "womens",
+		imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
+		size: "large",
+		id: 4,
+		linkUrl: "shop/womens",
+	},
+	{
+		title: "mens",
+		imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+		size: "large",
+		id: 5,
+		linkUrl: "shop/mens",
+	},
+];
+
+export const products = [
 	{
 		id: 1,
 		title: "Hats",
@@ -246,39 +281,29 @@ const SHOP_DATA = [
 	},
 ];
 
-export const sections = [
+export const offers = [
 	{
-		title: 'hats',
-		imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-		id: 1,
-		linkUrl: 'shop/hats'
+		id: 16,
+		name: "Air Jordan Limited",
+		imageUrl: "https://i.ibb.co/w4k6Ws9/nike-funky.png",
+		price: 190,
 	},
 	{
-		title: 'jackets',
-		imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-		id: 2,
-		linkUrl: 'shop/jackets'
+		id: 12,
+		name: "Black Converse",
+		imageUrl: "https://i.ibb.co/bPmVXyP/black-converse.png",
+		price: 110,
 	},
 	{
-		title: 'sneakers',
-		imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-		id: 3,
-		linkUrl: 'shop/sneakers'
+		id: 22,
+		name: "Tan Trench",
+		imageUrl: "https://i.ibb.co/M6hHc3F/brown-trench.png",
+		price: 185,
 	},
 	{
-		title: 'womens',
-		imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-		size: 'large',
-		id: 4,
-		linkUrl: 'shop/womens'
+		id: 34,
+		name: "Jean Long Sleeve",
+		imageUrl: "https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png",
+		price: 40,
 	},
-	{
-		title: 'mens',
-		imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-		size: 'large',
-		id: 5,
-		linkUrl: 'shop/mens'
-	}
-]
-
-export default SHOP_DATA;
+];

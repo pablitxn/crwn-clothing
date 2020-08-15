@@ -1,31 +1,20 @@
+// React
 import React, { FC } from "react";
 // Types
-import { ProductProps } from "./types"
-// Styles
-import "./styles.scss";
+import { IProduct } from "./types";
+// AntD
+import { Card } from "antd";
 
-const Product: FC<ProductProps> = ({ item, addItem }) => {
-	const { name, price, imageUrl } = item;
+const { Meta } = Card;
+
+const Product: FC<IProduct> = ({ item, addItem }) => {
+	const { name, imageUrl, price } = item;
 
 	return (
-		<div className="item">
-			<div
-				className="item__image"
-				style={{
-					backgroundImage: `url(${imageUrl})`,
-				}}
-			/>
-			<div className="footer">
-				<span className="footer__name">{name}</span>
-				<span className="footer__price">{price}</span>
-			</div>
-			<button onClick={() => addItem(item)} className="item__add-button">
-				Add to cart
-			</button>
-		</div>
+		<Card hoverable style={{ width: 240 }} cover={<img alt={name} src={imageUrl} />}>
+			<Meta title={name} description={`increible precio -> $${price}`} />
+		</Card>
 	);
 };
 
 export default Product;
-
-// TODO: revisar BEM, button-custom. revisar

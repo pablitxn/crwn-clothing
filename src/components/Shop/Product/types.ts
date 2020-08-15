@@ -1,5 +1,5 @@
 // TODO: tipar
-export interface ProductProps {
+export interface IProduct {
   item: any;
   addItem?: any;
 }

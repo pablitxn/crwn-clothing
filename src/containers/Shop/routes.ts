@@ -1,7 +1,7 @@
 // React Lazy
 import { lazy } from "react";
 // Views
-const Sections = lazy(() => import("views/Shop/Sections"));
+const Shop = lazy(() => import("views/Shop"));
 const Products = lazy(() => import("views/Shop/Products"));
 const Cart = lazy(() => import("views/Shop/Cart"));
 const Checkout = lazy(() => import("views/Shop/Checkout"));
@@ -9,7 +9,7 @@ const Checkout = lazy(() => import("views/Shop/Checkout"));
 export default [
   {
     path: "/",
-    component: Sections,
+    component: Shop,
     exact: true
   },
   {
