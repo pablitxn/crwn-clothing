@@ -1,3 +1,3 @@
 export interface INavbar {
-  ["key"]?: any;
+  activeUser: boolean;
 }

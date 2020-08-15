@@ -1,26 +1,27 @@
 // React
 import React, { FC } from "react";
-// Router
-import { Switch, Route, Redirect } from "react-router-dom";
-import RouteWithSubRoutes from "containers/RouteWithSubRoutes";
-import routes from "./routes";
-// Containers
-import ShopContainer from "containers/Shop";
+// Custom Components
 import Navbar from "components/_shared/Navbar";
+import HandleSwitch from "components/_shared/HandleSwitch";
+// AntD
+import { Layout } from "antd";
+// Routes
+import routes from "./routes";
+// Styles
+import "./App.less";
+
+const { Header, Footer, Content } = Layout;
 
 const App: FC = () => (
-	<>
-		<Navbar />
-		<Switch>
-			{routes.map((route, i) => (
-				<RouteWithSubRoutes key={`${i}_${route.path}`} {...route} />
-			))}
-			<Route path="/" render={() => <ShopContainer />} />
-			<Route path="*">
-				<Redirect to="/" />
-			</Route>
-		</Switch>
-	</>
+	<Layout>
+		<Header className="header">
+			<Navbar activeUser={false} />
+		</Header>
+		<Content className="site-layout">
+			<HandleSwitch routes={routes} />
+		</Content>
+		<Footer className="footer">crw-clothing® 2020 </Footer>
+	</Layout>
 );
 
 export default App;
