@@ -1,21 +1,15 @@
 // React
 import React, { FC } from "react";
-// Custom Components
-import Navbar from "components/Navbar"
-// // Redux
+// Redux
 // import request from "state//actions";
 // import { selectors } from "state//selectors";
+// Types
+import { INavbar } from "./types";
 // Styles
-import "./styles.scss"
+import "./styles.less";
 
+const Navbar: FC<INavbar> = () => {
+	return <h1>Hola mundo</h1>;
+};
 
-const NavbarView: FC = () => {
-
-  const handleLogin = () => { }
-
-  return (
-    <Navbar activeUser={false} hidden={true} loginButton={handleLogin} />
-  )
-}
-
-export default NavbarView;
+export default Navbar;

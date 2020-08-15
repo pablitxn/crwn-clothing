@@ -15,16 +15,7 @@ const App: FC = () => (
 			{routes.map((route, i) => (
 				<RouteWithSubRoutes key={`${i}_${route.path}`} {...route} />
 			))}
-			<Route
-				path="/"
-				render={() =>
-					localStorage.getItem("access_token") ? (
-						<ShopContainer />
-					) : (
-						<Redirect to="/login" />
-					)
-				}
-			/>
+			<Route path="/" render={() => <ShopContainer />} />
 			<Route path="*">
 				<Redirect to="/" />
 			</Route>
