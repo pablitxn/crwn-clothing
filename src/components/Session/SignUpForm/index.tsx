@@ -1,7 +1,7 @@
 // React
 import React, { FC } from "react";
 // Custom Components
-import FormImput from "components/_shared/FormInput";
+import FormImput from "components/Session/SignInForm/node_modules/components/_shared/FormInput";
 // Types
 import { SignUpFormProps } from "./types";
 // Styles

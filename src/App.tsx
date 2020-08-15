@@ -6,7 +6,7 @@ import RouteWithSubRoutes from "containers/RouteWithSubRoutes";
 import routes from "./routes";
 // Containers
 import ShopContainer from "containers/Shop";
-import Navbar from "views/Navbar";
+import Navbar from "components/_shared/Navbar";
 
 const App: FC = () => (
 	<>
@@ -21,8 +21,8 @@ const App: FC = () => (
 					localStorage.getItem("access_token") ? (
 						<ShopContainer />
 					) : (
-							<Redirect to="/login" />
-						)
+						<Redirect to="/login" />
+					)
 				}
 			/>
 			<Route path="*">

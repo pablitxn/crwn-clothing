@@ -8,14 +8,13 @@ import { Switch } from "react-router-dom";
 import routes from "./routes";
 
 const ShopContainer: FC = () => (
-  <Suspense fallback={<SuspenseLoader />}>
-    <Switch>
-      {routes.map((route, i) => (
-        <RouteWithSubRoutes key={`${i}_${route.path}`} {...route} />
-      ))}
-    </Switch>
-  </Suspense>
-
+	<Suspense fallback={<SuspenseLoader />}>
+		<Switch>
+			{routes.map((route, i) => (
+				<RouteWithSubRoutes key={`${i}_${route.path}`} {...route} />
+			))}
+		</Switch>
+	</Suspense>
 );
 
 export default ShopContainer;
