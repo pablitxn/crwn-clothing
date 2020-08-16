@@ -1,4 +1,4 @@
-// TODO: tipar
-export interface SignUpFormProps {
-  onSubmit: any;
+export interface ISignUpForm {
+  onSubmit: (newUser: any) => void;
+  forgotPassButton: () => void;
 }
