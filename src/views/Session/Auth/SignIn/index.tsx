@@ -1,7 +1,7 @@
 // React
 import React from "react";
 // Components
-import SignInForm from "components/Session/SignInForm";
+import SignInForm from "components/Session/Auth/SignInForm";
 // AntD
 import { Row, Col, Typography } from "antd";
 // Redux

@@ -1,7 +1,7 @@
 // React
 import React from "react";
 // Custom Components
-import NewPassForm from "components/Session/NewPassForm";
+import NewPassForm from "components/Session/Auth/NewPassForm";
 // AntD
 import { Row, Col, Typography } from "antd";
 // Redux

@@ -1,7 +1,7 @@
 // React
 import React, { FC, useEffect, useState } from "react";
 // Components
-import RecoveryForm from "components/Session/RecoveryForm";
+import RecoveryForm from "components/Session/Auth/RecoveryForm";
 // AntD
 import { Row, Col, Typography } from "antd";
 // Redux
