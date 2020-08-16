@@ -1,3 +1,4 @@
 export interface INewPassForm {
-  ["key"]?: any;
-}
+  onSubmit: (pass: string) => void;
+  goBackButton: () => void;
+};
