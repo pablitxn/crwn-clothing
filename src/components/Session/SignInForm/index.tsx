@@ -1,48 +1,64 @@
 // React
-import React, { FC, useState } from "react";
-// Custom Components
-// import FormInput from "components/_shared/FormInput";
-// import CustomButton from "components/_shared/CustomButton";
-//Types
-import { SignInFormProps } from "components/Session/SignInForm/types";
-// Styles
-import "./styles.scss";
+import React, { FC } from "react";
+// AntD
+import { Col, Row, Input, Form, Button } from "antd";
+// Types
+import { ISignInForm } from "./types";
 
-const SignInForm: FC<SignInFormProps> = ({ onSubmit, onGoogleSignIn }) => {
-	const [state, setState] = useState({
-		email: "",
-		password: "",
-	});
-
-	// const emailRegex = /^(\w|\d|\.)+@(\w)+\.(\w){2,4}$/;
-	// const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,16}$/;
-
-	const handleEmail = (
-		input: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-	) => {
-		// TODO: email validation
-		setState({ ...state, email: input.target.value });
-	};
-
-	const handlePassword = (
-		input: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-	) => {
-		// TODO: email validation
-		setState({ ...state, password: input.target.value });
-	};
-
-	const handleSubmit = (event: React.FormEvent) => {
-		event.preventDefault();
-		onSubmit(state);
-	};
+const SignInForm: FC<ISignInForm> = ({ onSubmit, forgotPassButton }) => {
+	const handleSubmit: any = () => {};
 
 	return (
-		<div className="login">
-			<header className="header">
-				<h2 className="header__title">I already have an account</h2>
-				<span className="header__text">Sign in with your email and password</span>
-			</header>
-		</div>
+		<Form
+			// onSubmit={handleSubmit}
+			style={{
+				width: "100%",
+			}}
+		>
+			<Form.Item
+				label="Usuario o Email"
+				hasFeedback
+				// validateStatus={errors.username && "error"}
+				// help={errors.username ? errors.username : null}
+			>
+				<Input
+					id="username"
+					name="username"
+					// onChange={handleChange}
+					// value={values.username}
+					// prefix={}
+					placeholder="Username"
+				/>
+			</Form.Item>
+			<Form.Item
+				label="Contraseña"
+				hasFeedback
+				// validateStatus={errors.password && "error"}
+				// help={errors.password ? errors.password : null}
+			>
+				<Input.Password
+					id="password"
+					name="password"
+					// onChange={handleChange}
+					// value={values.password}
+					// prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
+					type="password"
+					placeholder="Password"
+				/>
+			</Form.Item>
+			<Form.Item>
+				<Row justify="center" align="middle">
+					<Col span={12}>
+						<Button block type="primary" htmlType="submit">
+							Iniciar Sesión
+						</Button>
+					</Col>
+				</Row>
+				<Row justify="center" align="middle">
+					<a onClick={forgotPassButton}>¿Olvidaste tu contraseña?</a>
+				</Row>
+			</Form.Item>
+		</Form>
 	);
 };
 
