@@ -1,11 +1,12 @@
+// React
 import React from "react";
 import ReactDOM from "react-dom";
 // Redux
 import { Provider } from "react-redux";
-// Router
 import makeStore, { history } from "state";
+// Router
 import { ConnectedRouter } from "connected-react-router";
-// React App
+// App
 import App from "./App";
 
 const store = makeStore();
@@ -16,5 +17,5 @@ ReactDOM.render(
 			<App />
 		</ConnectedRouter>
 	</Provider>,
-	document.getElementById("root")
+	document.getElementById("root"),
 );

@@ -1,60 +1,80 @@
 // React
-import React, { FC, useState } from "react";
-import { INavbar } from "./types";
-// Styles
-import "./styles.less";
+import React, { FC, useMemo } from "react";
 // AntD
-import { Menu, Input, Button } from "antd";
+import { Menu, Input, Button, Row, Col } from "antd";
 import {
 	LoginOutlined,
 	UserOutlined,
 	ShoppingOutlined,
 	HomeFilled,
 } from "@ant-design/icons";
+// Custom Hooks
+import { useNavbar } from "hooks";
+// Types
+import { INavbar } from "./types";
+// Styles
+import "./styles.less";
 
 const { Search } = Input;
 
 const Navbar: FC<INavbar> = ({ activeUser }) => {
-	const [state, setState] = useState({ current: "mail" });
+	const alignCenter = { display: "flex", alignItems: "center" };
 
-	const { current } = state;
-
-	const handleNavigation: React.EventHandler<any> = (e) => {
-		console.log(`navbar / handleNavigation -> key: ${e.key}`);
-		setState({ ...state, current: e.key });
-	};
+	const { handleClick, current } = useNavbar();
 
 	return (
-		<Menu
-			theme="dark"
-			mode="horizontal"
-			defaultSelectedKeys={["1"]}
-			onClick={handleNavigation}
-			selectedKeys={[current]}
-			className="navbar"
-		>
-			<Menu.Item key="home" className="logo" icon={<HomeFilled />}></Menu.Item>
-			<Menu.Item className="search">
+		<Row justify="center">
+			<Col span={2}>
+				<Menu
+					theme="dark"
+					mode="horizontal"
+					onClick={handleClick}
+					selectedKeys={[current]}
+					className="navbar"
+				>
+					<Menu.Item key="/" className="logo" style={alignCenter} icon={<HomeFilled />} />
+				</Menu>
+			</Col>
+
+			<Col span={18} style={alignCenter}>
 				<Search
 					placeholder="¿Qué producto estás buscando?"
 					onSearch={(value) => console.log(value)}
 					enterButton
 					size="large"
 				/>
-			</Menu.Item>
-			<Menu.Item key="session" className="session">
-				{activeUser ? (
-					<Button type="ghost" icon={<UserOutlined />}>
-						Mi cuenta
-					</Button>
-				) : (
-					<Button type="primary" icon={<LoginOutlined />}>
-						Ingresar
-					</Button>
-				)}
-			</Menu.Item>
-			<Menu.Item key="cart" className="cart" icon={<ShoppingOutlined />}></Menu.Item>
-		</Menu>
+			</Col>
+
+			<Col span={4}>
+				<Menu
+					theme="dark"
+					mode="horizontal"
+					onClick={handleClick}
+					selectedKeys={[current]}
+					className="navbar"
+				>
+					{activeUser ? (
+						<Menu.Item key="/my-account" className="session">
+							<Button type="ghost" icon={<UserOutlined />}>
+								Mi cuenta
+							</Button>
+						</Menu.Item>
+					) : (
+						<Menu.Item key="/sign-in" className="session">
+							<Button type="primary" icon={<LoginOutlined />}>
+								Ingresar
+							</Button>
+						</Menu.Item>
+					)}
+					<Menu.Item
+						key="/cart"
+						className="cart"
+						icon={<ShoppingOutlined />}
+						style={alignCenter}
+					/>
+				</Menu>
+			</Col>
+		</Row>
 	);
 };
 

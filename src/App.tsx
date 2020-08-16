@@ -5,7 +5,6 @@ import Navbar from "components/_shared/Navbar";
 import HandleSwitch from "components/_shared/HandleSwitch";
 // AntD
 import { Layout } from "antd";
-// Routes
 import routes from "./routes";
 // Styles
 import "./App.less";

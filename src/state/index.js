@@ -1,6 +1,6 @@
 // Redux
 import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension"
+import { composeWithDevTools } from "redux-devtools-extension";
 import { createLogger } from "redux-logger";
 // Redux Saga
 import createSagaMiddleware from "redux-saga";
@@ -15,25 +15,27 @@ import { routerMiddleware } from "connected-react-router";
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
 const loggerMiddleWare = createLogger({
-  collapsed: true,
+	collapsed: true,
 });
 let store;
 let middlewares = [];
 
 const makeStore = (initialState = {}) => {
-  if (process.env.NODE_ENV === "development") middlewares.push(loggerMiddleWare);
-  middlewares.push(routerMiddleware(history));
-  middlewares.push(sagaMiddleware);
+	if (process.env.NODE_ENV === "development") {
+		middlewares.push(loggerMiddleWare);
+	}
+	middlewares.push(routerMiddleware(history));
+	middlewares.push(sagaMiddleware);
 
-  store = createStore(
-    createRootReducer(history),
-    initialState,
-    composeWithDevTools(applyMiddleware(...middlewares)),
-  );
-  sagaMiddleware.run(rootSaga);
+	store = createStore(
+		createRootReducer(history),
+		initialState,
+		composeWithDevTools(applyMiddleware(...middlewares)),
+	);
+	sagaMiddleware.run(rootSaga);
 
-  return store;
-}
+	return store;
+};
 
 export { store, history };
 
