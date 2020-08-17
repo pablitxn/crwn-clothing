@@ -8,18 +8,12 @@ import Sections from "components/Shop/Sections";
 import { useDispatch, useSelector } from "react-redux";
 import { sectionsRequest } from "state/shop/actions";
 import { sectionsSelector } from "state/shop/selectors";
-// Utils
-import { sections } from "utils";
 // Styles
 import "./styles.less";
 
-// test
-import rsf from "state/firebase";
-
 const ShopView: FC = () => {
 	const d = useDispatch();
-	// const { loading, data, error } = useSelector((state: any) => sectionsSelector(state));
-	const section = useSelector((state: any) => sectionsSelector(state));
+	const $sections = useSelector((state: any) => sectionsSelector(state));
 
 	const handleSearch = (value: string) => {
 		console.log(value);
@@ -31,10 +25,9 @@ const ShopView: FC = () => {
 
 	return (
 		<div className="shop">
-			{/* {console.log("sections", section)} */}
 			<Hero onSearch={handleSearch} />
 			<Offers />
-			<Sections sections={sections} />
+			<Sections sections={$sections.data} loading={$sections.loading} />
 		</div>
 	);
 };

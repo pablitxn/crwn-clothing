@@ -9,10 +9,10 @@ import "./styles.less";
 // Custom Components
 import Section from "components/Shop/Sections/Section";
 
-const Sections: FC<ISections> = ({ sections }) => {
+const Sections: FC<ISections> = ({ sections, loading }) => {
 	return (
-		<Card title="sections">
-			{sections.map((section: any, i: number) => (
+		<Card title="sections" loading={loading}>
+			{sections?.map((section: any, i: number) => (
 				<Card.Grid key={i}>
 					<Section section={section} />
 				</Card.Grid>

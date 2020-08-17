@@ -8,12 +8,12 @@ import "./styles.less";
 import { Card } from "antd";
 
 const Section: FC<ISection> = ({ section }) => {
-	const { title, imageUrl } = section;
+	const { title, imageURL } = section;
 
 	return (
 		<div className="section">
 			<h3>{title.toUpperCase()}</h3>
-			<Card hoverable style={{ width: 240 }} cover={<img src={imageUrl} />}></Card>
+			<Card hoverable style={{ width: 240 }} cover={<img src={imageURL} />}></Card>
 		</div>
 	);
 };
