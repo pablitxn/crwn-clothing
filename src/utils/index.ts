@@ -313,3 +313,20 @@ export const sessionRegex: any = {
 	username: /^[\s\w]{4,20}/,
 	password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,16}$/
 };
+
+export const formatURL = (section: string) => {
+	switch (section) {
+		case "hats":
+			return "/0"
+		case "jackets":
+			return "/1"
+		case "jeans":
+			return "/2"
+		case "shirts":
+			return "/3"
+		case "sneakers":
+			return "/4"
+		default:
+			return "/"
+	}
+}
