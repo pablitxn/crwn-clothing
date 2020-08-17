@@ -18,6 +18,7 @@ function* workerSignInGoogle() {
 		// Saving data
 		const user = firebase.auth().currentUser;
 		sessionStorage.setItem("session_active", true);
+		sessionStorage.setItem("uid", user.uid);
 		yield put(actions.signInGoogleSuccess(user));
 		// Redirect to home
 		yield put(go("/"));
