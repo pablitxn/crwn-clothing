@@ -4,25 +4,27 @@ import React from "react";
 import SignInForm from "components/Session/Auth/SignInForm";
 // AntD
 import { Row, Col, Typography } from "antd";
+// Router
+import { useHistory } from "react-router-dom";
 // Redux
 // import { useDispatch } from "react-redux";
 // import { requestSignIn } from "state/session/actions";
-// import { useHistory } from "react-router-dom";
+// Types
+import { User } from "components/Session/Auth/SignInForm/types";
 
 const { Title } = Typography;
-type HandleSubmit = (username: string, password: string) => void;
 
 const SignInView = () => {
 	// const d = useDispatch();
-	// const h = useHistory();
+	const h = useHistory();
 
-	const handleSubmit: HandleSubmit = (username, password) => {
+	const handleSubmit = ({ username, password }: User) => {
 		// d(requestSignIn({ username, password }));
 		console.log(`el usuario es ${username} y su pass ${password}`);
 	};
 
 	const forgotPassButton = () => {
-		// h.push("/session/recovery");
+		h.push("/forgot-pass");
 	};
 
 	return (

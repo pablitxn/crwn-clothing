@@ -1,31 +1,48 @@
 // React
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
+// Custom Hooks
+import { useAccountValidator } from "hooks";
 // AntD
 import { Col, Row, Input, Form, Button } from "antd";
 // Types
-import { ISignInForm } from "./types";
+import { ISignInForm, HandleChange } from "./types";
 
 const SignInForm: FC<ISignInForm> = ({ onSubmit, forgotPassButton }) => {
-	const handleSubmit: any = () => {};
+	const [formData, setFormData] = useState({
+		username: "",
+		password: "",
+	});
+
+	const { formValidations, handleValidations } = useAccountValidator();
+
+	const handleSubmit = () => {
+		handleValidations(formData);
+		onSubmit(formData);
+	};
+
+	const handleChange: HandleChange = (event) => {
+		const { name, value } = event.target;
+		setFormData({ ...formData, [name]: value });
+	};
 
 	return (
 		<Form
-			// onSubmit={handleSubmit}
+			onFinish={handleSubmit}
 			style={{
 				width: "100%",
 			}}
 		>
 			<Form.Item
-				label="Usuario o Email"
+				label="Username"
 				hasFeedback
-				// validateStatus={errors.username && "error"}
-				// help={errors.username ? errors.username : null}
+				validateStatus={formValidations.username ? "error" : ""}
+				help={formValidations.username ? "El usuario es válido" : null}
 			>
 				<Input
 					id="username"
 					name="username"
-					// onChange={handleChange}
-					// value={values.username}
+					onChange={handleChange}
+					value={formData.username}
 					// prefix={}
 					placeholder="Username"
 				/>
@@ -33,14 +50,14 @@ const SignInForm: FC<ISignInForm> = ({ onSubmit, forgotPassButton }) => {
 			<Form.Item
 				label="Contraseña"
 				hasFeedback
-				// validateStatus={errors.password && "error"}
-				// help={errors.password ? errors.password : null}
+				validateStatus={formValidations.password ? "error" : ""}
+				help={formValidations.password ? "La contraseña es inválida" : null}
 			>
 				<Input.Password
 					id="password"
 					name="password"
-					// onChange={handleChange}
-					// value={values.password}
+					onChange={handleChange}
+					value={formData.password}
 					// prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
 					type="password"
 					placeholder="Password"
@@ -51,6 +68,11 @@ const SignInForm: FC<ISignInForm> = ({ onSubmit, forgotPassButton }) => {
 					<Col span={12}>
 						<Button block type="primary" htmlType="submit">
 							Iniciar Sesión
+						</Button>
+					</Col>
+					<Col span={12}>
+						<Button block type="ghost" htmlType="submit">
+							Conectar con Gmail
 						</Button>
 					</Col>
 				</Row>

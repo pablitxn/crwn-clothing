@@ -1,4 +1,13 @@
+import { ChangeEvent } from "react"
+
+export type User = {
+  username: string
+  password: string
+}
+
+export type HandleChange = (event: ChangeEvent<HTMLInputElement>) => void
+
 export interface ISignInForm {
-  onSubmit: (username: string, password: string) => void;
-  forgotPassButton: () => void;
+  onSubmit: ({ username, password }: User) => void
+  forgotPassButton: () => void
 }

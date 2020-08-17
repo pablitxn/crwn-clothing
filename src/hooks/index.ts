@@ -1,3 +1,4 @@
 import { useNavbar } from "./useNavbar";
+import { useAccountValidator } from "./useAccountValidator";
 
-export { useNavbar };
+export { useNavbar, useAccountValidator };
