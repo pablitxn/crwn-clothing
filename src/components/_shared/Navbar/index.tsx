@@ -52,18 +52,18 @@ const Navbar: FC = () => {
 					className="navbar"
 				>
 					{session ? (
-						<Menu.Item key="/session/my-account" className="session">
+						<Menu.Item key="my-account" className="session">
 							<Button icon={<UserOutlined />}>Mi cuenta</Button>
 						</Menu.Item>
 					) : (
-						<Menu.Item key="/auth/sign-in" className="session">
+						<Menu.Item key="sign-in" className="session">
 							<Button type="primary" icon={<LoginOutlined />}>
 								Ingresar
 							</Button>
 						</Menu.Item>
 					)}
 					<Menu.Item
-						key="/cart"
+						key="cart"
 						className="cart"
 						icon={<ShoppingOutlined />}
 						style={alignCenter}

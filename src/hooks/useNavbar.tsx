@@ -27,14 +27,14 @@ export const useNavbar = () => {
 			case "/":
 				h.push("/");
 				return;
-			case "/sign-in":
-				h.push("/sign-in");
+			case "sign-in":
+				h.push("/auth/sign-in");
 				return;
-			case "/cart":
+			case "cart":
 				h.push("/cart");
 				return;
-			case "/my-account":
-				h.push("/my-account");
+			case "my-account":
+				h.push("/session/my-account");
 		}
 	};
 
