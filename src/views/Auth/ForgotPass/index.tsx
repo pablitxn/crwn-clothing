@@ -1,7 +1,7 @@
 // React
 import React, { FC } from "react";
 // Components
-import RecoveryForm from "components/Session/Auth/RecoveryForm";
+import RecoveryForm from "components/Auth/RecoveryForm";
 // AntD
 import { Row, Col, Typography } from "antd";
 // Router

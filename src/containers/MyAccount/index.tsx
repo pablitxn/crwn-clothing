@@ -1,13 +1,12 @@
 // React
 import React, { FC, Suspense } from "react";
 // Components
-import RouteWithSubRoutes from "containers/RouteWithSubRoutes";
-// import SuspenseLoader from "components/_shared/SuspenseLoader";
+import RouteWithSubRoutes from "components/_shared/RouteWithSubRoutes";
 // Router
 import { Switch } from "react-router-dom";
 import routes from "./routes";
 
-const SessionContainer: FC = () => (
+const MyAccountContainer: FC = () => (
 	<Suspense fallback={<span>loading...</span>}>
 		<Switch>
 			{routes.map((route, i) => (
@@ -17,4 +16,4 @@ const SessionContainer: FC = () => (
 	</Suspense>
 );
 
-export default SessionContainer;
+export default MyAccountContainer;

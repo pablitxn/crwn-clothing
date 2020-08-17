@@ -1,7 +1,7 @@
 // React
-import React from "react";
+import React, { useEffect } from "react";
 // Components
-import SignInForm from "components/Session/Auth/SignInForm";
+import SignInForm from "components/Auth/SignInForm";
 // AntD
 import { Row, Col, Typography } from "antd";
 // Router
@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signInGoogleRequest, signInRequest } from "state/session/actions";
 // Types
-import { User } from "components/Session/Auth/SignInForm/types";
+import { User } from "components/Auth/SignInForm/types";
 
 const { Title } = Typography;
 
@@ -28,6 +28,12 @@ const SignInView = () => {
 	const forgotPassButton = () => {
 		h.push("/forgot-pass");
 	};
+
+	useEffect(() => {
+		if (sessionStorage.getItem("session_active")) {
+			h.push("/");
+		}
+	}, []);
 
 	return (
 		<Row

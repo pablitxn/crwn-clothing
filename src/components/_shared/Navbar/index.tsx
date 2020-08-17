@@ -1,5 +1,5 @@
 // React
-import React, { FC, useMemo } from "react";
+import React, { FC } from "react";
 // AntD
 import { Menu, Input, Button, Row, Col } from "antd";
 import {
@@ -10,17 +10,15 @@ import {
 } from "@ant-design/icons";
 // Custom Hooks
 import { useNavbar } from "hooks";
-// Types
-import { INavbar } from "./types";
 // Styles
 import "./styles.less";
 
 const { Search } = Input;
 
-const Navbar: FC<INavbar> = ({ activeUser }) => {
+const Navbar: FC = () => {
 	const alignCenter = { display: "flex", alignItems: "center" };
 
-	const { handleClick } = useNavbar();
+	const { handleClick, session } = useNavbar();
 
 	return (
 		<Row justify="center">
@@ -53,14 +51,12 @@ const Navbar: FC<INavbar> = ({ activeUser }) => {
 					selectedKeys={[]}
 					className="navbar"
 				>
-					{activeUser ? (
-						<Menu.Item key="/my-account" className="session">
-							<Button type="ghost" icon={<UserOutlined />}>
-								Mi cuenta
-							</Button>
+					{session ? (
+						<Menu.Item key="/session/my-account" className="session">
+							<Button icon={<UserOutlined />}>Mi cuenta</Button>
 						</Menu.Item>
 					) : (
-						<Menu.Item key="/sign-in" className="session">
+						<Menu.Item key="/auth/sign-in" className="session">
 							<Button type="primary" icon={<LoginOutlined />}>
 								Ingresar
 							</Button>

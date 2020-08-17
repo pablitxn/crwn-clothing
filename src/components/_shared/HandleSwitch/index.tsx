@@ -2,7 +2,7 @@
 import React, { FC } from "react";
 // Router
 import { Switch, Route, Redirect } from "react-router-dom";
-import RouteWithSubRoutes from "containers/RouteWithSubRoutes";
+import RouteWithSubRoutes from "components/_shared/RouteWithSubRoutes";
 // Containers
 import ShopContainer from "containers/Shop";
 // Types

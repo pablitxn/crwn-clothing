@@ -1,10 +1,12 @@
 // Routes
-import sessionRoutes from "containers/Session/routes";
+import sessionRoutes from "containers/Auth/routes";
 import shopRoutes from "containers/Shop/routes";
+import myAccountRoutes from "containers/MyAccount/routes";
 
 // Containers
-import SessionContainer from "containers/Session";
+import SessionContainer from "containers/Auth";
 import ShopContainer from "containers/Shop";
+import MyAccountContainer from "containers/MyAccount";
 
 export default [
   {
@@ -14,8 +16,13 @@ export default [
     exact: true
   },
   {
-    path: "/",
+    path: "/auth",
     component: SessionContainer,
     routes: sessionRoutes,
+  },
+  {
+    path: "/session",
+    component: MyAccountContainer,
+    routes: myAccountRoutes,
   }
 ];

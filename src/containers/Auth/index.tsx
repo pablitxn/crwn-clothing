@@ -6,7 +6,7 @@ import RouteWithSubRoutes from "components/_shared/RouteWithSubRoutes";
 import { Switch } from "react-router-dom";
 import routes from "./routes";
 
-const ShopContainer: FC = () => (
+const SessionContainer: FC = () => (
 	<Suspense fallback={<span>loading...</span>}>
 		<Switch>
 			{routes.map((route, i) => (
@@ -16,4 +16,4 @@ const ShopContainer: FC = () => (
 	</Suspense>
 );
 
-export default ShopContainer;
+export default SessionContainer;

@@ -1,5 +1,8 @@
 // React
 import { useState } from "react";
+// Redux
+// import { useSelector } from "react-redux";
+// import { activeUserSelector } from "state/session/selectors";
 // Router
 import { useHistory } from "react-router-dom";
 
@@ -15,7 +18,9 @@ type MenuEvent = {
 
 export const useNavbar = () => {
 	const [current, setCurrent] = useState("");
+	// const activeUser = useSelector((state: any) => activeUserSelector(state));
 	const h = useHistory();
+	const session = sessionStorage.getItem("session_active") ?? false;
 
 	const handleNavigation: handleNavigation = (route) => {
 		switch (route) {
@@ -28,6 +33,8 @@ export const useNavbar = () => {
 			case "/cart":
 				h.push("/cart");
 				return;
+			case "/my-account":
+				h.push("/my-account");
 		}
 	};
 
@@ -36,5 +43,5 @@ export const useNavbar = () => {
 		handleNavigation(key);
 	};
 
-	return { current, handleClick };
+	return { current, handleClick, session };
 };

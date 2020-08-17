@@ -4,7 +4,7 @@ import * as types from "state/session/types";
 // Redux Saga
 import { put, takeLatest, call } from "redux-saga/effects";
 // Router
-import { push } from "connected-react-router";
+import { go } from "connected-react-router";
 // Firebase
 import firebase from "firebase";
 import rsf from "state/firebase";
@@ -17,9 +17,10 @@ function* workerSignInGoogle() {
 		yield call(rsf.auth.signInWithPopup, authProvider);
 		// Saving data
 		const user = firebase.auth().currentUser;
+		sessionStorage.setItem("session_active", true);
 		yield put(actions.signInGoogleSuccess(user));
 		// Redirect to home
-		yield put(push("/"));
+		yield put(go("/"));
 	} catch (error) {
 		// Catching error
 		yield put(actions.signInGoogleFailure(error));

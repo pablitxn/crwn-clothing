@@ -2,7 +2,7 @@
 import { createSelector } from "reselect";
 
 // Reducers
-const sessionReducer = ({ session }) => session;
+const sessionReducer = ({ Session }) => Session;
 
 export const signInSelector = createSelector(
 	[sessionReducer],
@@ -12,4 +12,9 @@ export const signInSelector = createSelector(
 export const signInGoogleSelector = createSelector(
 	[sessionReducer],
 	(session) => session.signInGoogle,
+);
+
+export const activeUserSelector = createSelector(
+	[sessionReducer],
+	(session) => session.activeUser,
 );

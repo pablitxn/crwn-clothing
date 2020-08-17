@@ -1,7 +1,7 @@
 // React
 import React from "react";
 // Components
-import SignUpForm from "components/Session/Auth/SignUpForm";
+import SignUpForm from "components/Auth/SignUpForm";
 // AntD
 import { Row, Col, Typography } from "antd";
 // Redux
