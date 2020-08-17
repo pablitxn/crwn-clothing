@@ -3,40 +3,74 @@ import sessionDuck from "state/session";
 import * as types from "state/session/types";
 
 const initialState = {
-  login: {
-    loading: false,
-    error: null,
-    data: null
-  }
+	signIn: {
+		loading: false,
+		error: null,
+		data: null,
+	},
+	signInGoogle: {
+		loading: false,
+		error: null,
+		data: null,
+	},
+	activeUser: null,
 };
 
-const reducer = sessionDuck.createReducer({
-  [types.LOGIN_REQUEST]: (state) => ({
-    ...state,
-    login: {
-      loading: true,
-      error: false,
-      data: null,
-    },
-  }),
-  [types.LOGIN_SUCCESS]: (state, { payload }) => ({
-    ...state,
-    login: {
-      loading: false,
-      error: false,
-      data: payload,
-    },
-  }),
-  [types.LOGIN_FAILURE]: (state) => ({
-    ...state,
-    login: {
-      loading: false,
-      error: true,
-      data: null,
-    },
-  }),
-},
-  initialState,
+const reducer = sessionDuck.createReducer(
+	{
+		// Sign in with account
+		[types.SIGNIN_REQUEST]: (state) => ({
+			...state,
+			signIn: {
+				loading: true,
+				error: false,
+				data: null,
+			},
+		}),
+		[types.SIGNIN_SUCCESS]: (state, { payload }) => ({
+			...state,
+			signIn: {
+				loading: false,
+				error: false,
+				data: payload,
+			},
+		}),
+		[types.SIGNIN_FAILURE]: (state, { payload }) => ({
+			...state,
+			signIn: {
+				loading: false,
+				error: payload,
+				data: null,
+			},
+		}),
+		// Sign in with google
+		[types.SIGNIN_GOOGLE_REQUEST]: (state) => ({
+			...state,
+			signInGoogle: {
+				loading: true,
+				error: false,
+				data: null,
+			},
+		}),
+		[types.SIGNIN_GOOGLE_SUCCESS]: (state, { payload }) => ({
+			...state,
+			signInGoogle: {
+				loading: false,
+				error: false,
+				data: payload,
+			},
+			activeUser: payload,
+		}),
+		[types.SIGNIN_GOOGLE_FAILURE]: (state, { payload }) => ({
+			...state,
+			signInGoogle: {
+				loading: false,
+				error: payload,
+				data: null,
+			},
+		}),
+	},
+	initialState,
 );
 
 export default reducer;

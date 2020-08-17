@@ -7,21 +7,23 @@ import { Row, Col, Typography } from "antd";
 // Router
 import { useHistory } from "react-router-dom";
 // Redux
-// import { useDispatch } from "react-redux";
-// import { requestSignIn } from "state/session/actions";
+import { useDispatch } from "react-redux";
+import { signInGoogleRequest, signInRequest } from "state/session/actions";
 // Types
 import { User } from "components/Session/Auth/SignInForm/types";
 
 const { Title } = Typography;
 
 const SignInView = () => {
-	// const d = useDispatch();
+	const d = useDispatch();
 	const h = useHistory();
 
 	const handleSubmit = ({ username, password }: User) => {
 		// d(requestSignIn({ username, password }));
 		console.log(`el usuario es ${username} y su pass ${password}`);
 	};
+
+	const handleGoogleSignIn = () => d(signInGoogleRequest());
 
 	const forgotPassButton = () => {
 		h.push("/forgot-pass");
@@ -53,7 +55,11 @@ const SignInView = () => {
 						width: "100%",
 					}}
 				>
-					<SignInForm onSubmit={handleSubmit} forgotPassButton={forgotPassButton} />
+					<SignInForm
+						onSubmit={handleSubmit}
+						forgotPassButton={forgotPassButton}
+						onSignInGoogle={handleGoogleSignIn}
+					/>
 				</Row>
 			</Col>
 		</Row>

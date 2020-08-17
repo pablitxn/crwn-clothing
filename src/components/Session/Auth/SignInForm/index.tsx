@@ -7,7 +7,7 @@ import { Col, Row, Input, Form, Button } from "antd";
 // Types
 import { ISignInForm, HandleChange } from "./types";
 
-const SignInForm: FC<ISignInForm> = ({ onSubmit, forgotPassButton }) => {
+const SignInForm: FC<ISignInForm> = ({ onSubmit, forgotPassButton, onSignInGoogle }) => {
 	const [formData, setFormData] = useState({
 		username: "",
 		password: "",
@@ -71,7 +71,7 @@ const SignInForm: FC<ISignInForm> = ({ onSubmit, forgotPassButton }) => {
 						</Button>
 					</Col>
 					<Col span={12}>
-						<Button block type="ghost" htmlType="submit">
+						<Button block type="ghost" onClick={onSignInGoogle}>
 							Conectar con Gmail
 						</Button>
 					</Col>

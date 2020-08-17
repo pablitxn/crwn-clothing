@@ -1,4 +1,4 @@
 // Sagas
-import loginSagas from "./login.saga";
+import signIn from "./signInGoogle";
 
-export const sagas = [...loginSagas];
+export const sagas = [...signIn];

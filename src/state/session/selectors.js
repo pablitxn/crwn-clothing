@@ -4,4 +4,12 @@ import { createSelector } from "reselect";
 // Reducers
 const sessionReducer = ({ session }) => session;
 
-export const loginSelector = createSelector([sessionReducer], session => session.login);
+export const signInSelector = createSelector(
+	[sessionReducer],
+	(session) => session.signIn,
+);
+
+export const signInGoogleSelector = createSelector(
+	[sessionReducer],
+	(session) => session.signInGoogle,
+);
