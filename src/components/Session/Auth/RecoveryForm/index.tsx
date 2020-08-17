@@ -1,35 +1,46 @@
 // React
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 // AntD
-import { Input, Form, Button, Row, Alert } from "antd";
+import { Input, Form, Button, Row } from "antd";
 // Types
 import { IRecoveryForm } from "./types";
 
-const RecoveryForm: FC<IRecoveryForm> = ({ onSubmit, goBackButton, success }) => {
+const RecoveryForm: FC<IRecoveryForm> = ({ onSubmit, goBackButton }) => {
+	const [email, setEmail] = useState("");
+	const [error, setError] = useState(false);
+
+	const handleChange = (event: any) => {
+		const { value } = event.target;
+		setEmail(value);
+	};
+
+	const handleSubmit = () => {
+		if (/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/.test(email)) {
+			onSubmit(email);
+			setError(false);
+		} else {
+			setError(true);
+		}
+	};
+
 	return (
 		<Form
-			// onSubmit={handleSubmit}
+			onFinish={handleSubmit}
 			style={{
 				width: "100%",
 			}}
 		>
-			{success && (
-				<Alert
-					message="Ya te enviamos un correo electrónico con las instrucciones para reestablecer tu contraseña."
-					type="info"
-				/>
-			)}
 			<Form.Item
-				label="Usuario o Email"
+				label="Email"
 				hasFeedback
-				// validateStatus={errors.email && "error"}
-				// help={errors.email ? errors.email : null}
+				validateStatus={error ? "error" : ""}
+				help={error ? "Revisa que el correo sea correcto" : null}
 			>
 				<Input
 					id="email"
 					name="email"
-					// onChange={handleChange}
-					// value={values.email}
+					onChange={handleChange}
+					value={email}
 					// prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
 					placeholder="Email"
 				/>

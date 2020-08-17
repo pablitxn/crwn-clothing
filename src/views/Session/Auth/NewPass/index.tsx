@@ -4,17 +4,18 @@ import React from "react";
 import NewPassForm from "components/Session/Auth/NewPassForm";
 // AntD
 import { Row, Col, Typography } from "antd";
+// Router
+import { useHistory } from "react-router-dom";
 // Redux
 // import { useDispatch, useSelector } from "react-redux";
 // import { requestSetPassword } from "state/session/actions";
-// import { useHistory } from "react-router-dom";
 // import { emailSelector } from "state/session/selectors";
 
 const { Title } = Typography;
 
 const SetPassword = () => {
 	// const d = useDispatch();
-	// const h = useHistory();
+	const h = useHistory();
 	// const { email } = useSelector((reduxState) => emailSelector(reduxState));
 
 	const handleSubmit: any = ({ password_reset_token, password }: any) => {
@@ -23,7 +24,7 @@ const SetPassword = () => {
 	};
 
 	const goBackButton = () => {
-		// h.push("/session/signin");
+		h.push("/sign-in");
 	};
 
 	return (

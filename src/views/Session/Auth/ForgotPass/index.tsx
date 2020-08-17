@@ -1,39 +1,31 @@
 // React
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 // Components
 import RecoveryForm from "components/Session/Auth/RecoveryForm";
 // AntD
 import { Row, Col, Typography } from "antd";
+// Router
+import { useHistory } from "react-router-dom";
 // Redux
 // import { useDispatch, useSelector } from "react-redux";
 // import { requestResetPassword } from "state/session/actions";
-// import { useHistory } from "react-router-dom";
 // import { resetPasswordSelector } from "state/session/selectors";
 
 const { Title } = Typography;
 
-const ForgotPass = () => {
-	const [statusRequest, setStatusRequest] = useState(false);
+const ForgotPass: FC = () => {
 	// const d = useDispatch();
-	// const h = useHistory();
+	const h = useHistory();
 	// const resetPasswordReducer = useSelector((reduxState) => resetPasswordSelector(reduxState));
 
-	const handleSubmit: any = (email: string) => {
+	const handleSubmit = (email: string) => {
 		// d(requestResetPassword(email));
-		console.log(email);
+		console.log("correo para resetear ->", email);
 	};
 
 	const goBackButton = () => {
-		// h.push("/session/signin");
+		h.push("/sign-in");
 	};
-
-	// useEffect(() => {
-	// 	if (resetPasswordReducer) {
-	// 		setStatusRequest(true);
-	// 	} else {
-	// 		setStatusRequest(false);
-	// 	}
-	// }, [resetPasswordReducer]);
 
 	return (
 		<Row
@@ -61,11 +53,7 @@ const ForgotPass = () => {
 						width: "100%",
 					}}
 				>
-					<RecoveryForm
-						onSubmit={handleSubmit}
-						goBackButton={goBackButton}
-						success={statusRequest}
-					/>
+					<RecoveryForm onSubmit={handleSubmit} goBackButton={goBackButton} />
 				</Row>
 			</Col>
 		</Row>
