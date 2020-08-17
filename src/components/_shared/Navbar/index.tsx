@@ -20,7 +20,7 @@ const { Search } = Input;
 const Navbar: FC<INavbar> = ({ activeUser }) => {
 	const alignCenter = { display: "flex", alignItems: "center" };
 
-	const { handleClick, current } = useNavbar();
+	const { handleClick } = useNavbar();
 
 	return (
 		<Row justify="center">
@@ -29,7 +29,7 @@ const Navbar: FC<INavbar> = ({ activeUser }) => {
 					theme="dark"
 					mode="horizontal"
 					onClick={handleClick}
-					selectedKeys={[current]}
+					selectedKeys={[]}
 					className="navbar"
 				>
 					<Menu.Item key="/" className="logo" style={alignCenter} icon={<HomeFilled />} />
@@ -50,7 +50,7 @@ const Navbar: FC<INavbar> = ({ activeUser }) => {
 					theme="dark"
 					mode="horizontal"
 					onClick={handleClick}
-					selectedKeys={[current]}
+					selectedKeys={[]}
 					className="navbar"
 				>
 					{activeUser ? (
