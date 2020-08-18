@@ -5,7 +5,7 @@ import { IOffer } from "./types";
 // Styles
 import "./styles.less";
 // Custom Components
-import Product from "components/Shop/Product";
+import Product from "components/Shop/Products/Product";
 
 const Offer: FC<IOffer> = ({ items, titleSection }) => {
 	return (
@@ -13,7 +13,7 @@ const Offer: FC<IOffer> = ({ items, titleSection }) => {
 			<h3 className="title">{titleSection}</h3>
 			<div className="cards">
 				{items.map((item: any, i: number) => (
-					<Product key={i} item={item} />
+					<Product key={i} product={item} />
 				))}
 			</div>
 		</div>

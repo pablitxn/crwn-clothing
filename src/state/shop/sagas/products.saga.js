@@ -6,16 +6,16 @@ import { put, takeLatest, call } from "redux-saga/effects";
 // Firebase
 import rsf from "state/firebase";
 // Utils
-import { formatURL } from "utils";
+import { formatPath } from "utils";
 
-function* workerProducts({ section }) {
+function* workerProducts({ payload }) {
 	try {
-		const dbReference = formatURL(section);
+		const dbReference = formatPath(payload);
 		const { data } = yield call(rsf.database.read, dbReference);
 		console.log("products", dbReference, data);
-		yield put(actions.sectionsSuccess(data));
+		yield put(actions.productsSuccess(data));
 	} catch (error) {
-		yield put(actions.sectionsFailure(error));
+		yield put(actions.productsFailure(error));
 	}
 }
 

@@ -7,11 +7,11 @@ import { Card } from "antd";
 
 const { Meta } = Card;
 
-const Product: FC<IProduct> = ({ item, addItem }) => {
-	const { name, imageUrl, price } = item;
+const Product: FC<IProduct> = ({ product }) => {
+	const { name, imageURL, price } = product;
 
 	return (
-		<Card hoverable style={{ width: 240 }} cover={<img alt={name} src={imageUrl} />}>
+		<Card hoverable style={{ width: 240 }} cover={<img alt={name} src={imageURL} />}>
 			<Meta title={name} description={`increible precio -> $${price}`} />
 		</Card>
 	);

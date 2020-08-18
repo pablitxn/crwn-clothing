@@ -1,16 +1,31 @@
 // React App
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 // Custom Components
-// import Product from "components/Shop/Product";
+import Products from "components/Shop/Products";
 // Redux
-// import requestProducts from "state/shop/actions";
-// import shopDataSelector from "state/shop/selectors;"
+import { useDispatch, useSelector } from "react-redux";
+import { productsRequest } from "state/shop/actions";
+import { productsSelector } from "state/shop/selectors";
+// Router
+import { useHistory } from "react-router-dom";
 // Styles
 import "./styles.less";
 
-// TODO: tipado
-const Products: FC = () => {
-	return <div className="products">asdasd products</div>;
+const ProductsView: FC = () => {
+	const d = useDispatch();
+	const h = useHistory();
+	const $products = useSelector((state: any) => productsSelector(state));
+
+	useEffect(() => {
+		const { pathname } = h.location;
+		d(productsRequest(pathname));
+	}, []);
+
+	return (
+		<>
+			<Products products={$products.data} loading={$products} />
+		</>
+	);
 };
 
-export default Products;
+export default ProductsView;
