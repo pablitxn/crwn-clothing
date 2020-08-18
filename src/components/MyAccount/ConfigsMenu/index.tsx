@@ -14,6 +14,7 @@ import {
 
 const { SubMenu } = Menu;
 
+// WIP component
 const ConfigsMenu: FC = () => {
 	const [toggleCollapsed, setToggleCollapsed] = useState(false);
 

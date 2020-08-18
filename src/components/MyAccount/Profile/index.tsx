@@ -13,7 +13,6 @@ const Profile: FC<IProfile> = ({ onSignOut, activeUser }) => {
 
 	return (
 		<div style={{ width: "100%", marginTop: "2rem" }}>
-			{console.log(activeUser)}
 			<Row>
 				<Col span={20}>
 					<h2> Mi cuenta </h2>
@@ -27,7 +26,7 @@ const Profile: FC<IProfile> = ({ onSignOut, activeUser }) => {
 
 			<Col span={24}>
 				<Row justify="center">
-					<Avatar size={128} icon={<UserOutlined />} src={photoURL} />
+					<Avatar size={128} icon={<UserOutlined />} src={photoURL ?? ""} />
 				</Row>
 				<Row justify="center">
 					<h3>{displayName}</h3>

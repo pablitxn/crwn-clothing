@@ -1,4 +1,6 @@
+import { UserInfo } from "firebase"
+
 export interface IProfile {
-  activeUser: any
+  activeUser: UserInfo
   onSignOut: () => void
 }
