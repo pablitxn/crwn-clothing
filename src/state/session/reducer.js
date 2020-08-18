@@ -13,6 +13,11 @@ const initialState = {
 		error: null,
 		data: null,
 	},
+	signOut: {
+		loading: false,
+		error: null,
+		data: null,
+	},
 	activeUser: null,
 };
 
@@ -69,6 +74,59 @@ const reducer = sessionDuck.createReducer(
 				data: null,
 			},
 		}),
+		// Refresh Session
+		[types.REFRESH_SESSION_REQUEST]: (state) => ({
+			...state,
+			refreshSession: {
+				loading: true,
+				error: false,
+				data: null,
+			},
+		}),
+		[types.REFRESH_SESSION_SUCCESS]: (state, { payload }) => ({
+			...state,
+			refreshSession: {
+				loading: false,
+				error: false,
+				data: payload,
+			},
+			activeUser: payload,
+		}),
+		[types.REFRESH_SESSION_FAILURE]: (state, { payload }) => ({
+			...state,
+			refreshSession: {
+				loading: false,
+				error: payload,
+				data: null,
+			},
+		}),
+		// Sign Out
+		[types.SIGNOUT_REQUEST]: (state) => ({
+			...state,
+			signOut: {
+				loading: true,
+				error: false,
+				data: null,
+			},
+		}),
+		[types.SIGNOUT_SUCCESS]: (state, { payload }) => ({
+			...state,
+			signOut: {
+				loading: false,
+				error: false,
+				data: payload,
+			},
+		}),
+		[types.SIGNOUT_FAILURE]: (state, { payload }) => ({
+			...state,
+			signOut: {
+				loading: false,
+				error: payload,
+				data: null,
+			},
+		}),
+		// Clear Ducks
+		[types.CLEAR_SESSION_DUCKS]: () => initialState,
 	},
 	initialState,
 );

@@ -1,20 +1,27 @@
 // React
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useEffect } from "react";
 // Custom Components
 import Profile from "components/MyAccount/Profile";
 import ConfigsMenu from "components/MyAccount/ConfigsMenu";
 // Custom Hooks
 import { useNavbar } from "hooks";
 // Router
-// import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+// Redux
+import { useDispatch } from "react-redux";
+import { signOutRequest } from "state/session/actions";
 // AntD
 import { Col, Row } from "antd";
 
 const MyAccountView: FC = () => {
-	const { $activeUser } = useNavbar();
+	const d = useDispatch();
+	const h = useHistory();
+	const { $activeUser, session } = useNavbar();
+
+	const handleSignOut = () => d(signOutRequest());
 
 	useEffect(() => {
-		console.log($activeUser);
+		!session && h.push("/");
 	}, [$activeUser]);
 
 	return (
@@ -23,7 +30,7 @@ const MyAccountView: FC = () => {
 				<ConfigsMenu />
 			</Col>
 			<Col span={18}>
-				<Profile />
+				<Profile onSignOut={handleSignOut} />
 			</Col>
 		</Row>
 	);

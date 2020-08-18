@@ -65,6 +65,8 @@ const reducer = authDuck.createReducer(
 				data: null,
 			},
 		}),
+		// Clear Ducks
+		[types.CLEAR_SHOP_DUCKS]: () => initialState,
 	},
 	initialState,
 );

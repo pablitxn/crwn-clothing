@@ -1,20 +1,24 @@
 // React
 import React, { FC } from "react";
 // AntD
-import { Row, Col, Avatar, Divider } from "antd";
+import { Row, Col, Avatar, Divider, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-
 // Types
 import { IProfile } from "./types";
 // Styles
 import "./styles.less";
 
-const Profile: FC<IProfile> = () => {
+const Profile: FC<IProfile> = ({ onSignOut }) => {
 	return (
-		<div style={{ width: "100%" }}>
+		<div style={{ width: "100%", marginTop: "2rem" }}>
 			<Row>
-				<Col span={24}>
+				<Col span={20}>
 					<h2> Mi cuenta </h2>
+				</Col>
+				<Col span={4}>
+					<Button type="ghost" style={{ backgroundColor: "gray" }} onClick={onSignOut}>
+						Log out
+					</Button>
 				</Col>
 			</Row>
 

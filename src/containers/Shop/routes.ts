@@ -10,7 +10,6 @@ export default [
   {
     path: "/",
     component: Shop,
-    exact: true
   },
   {
     path: "/products",

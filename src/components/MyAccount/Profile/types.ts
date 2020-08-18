@@ -1,1 +1,3 @@
-export interface IProfile { }
+export interface IProfile {
+  onSignOut: () => void
+}
