@@ -30,7 +30,7 @@ const MyAccountView: FC = () => {
 				<ConfigsMenu />
 			</Col>
 			<Col span={18}>
-				<Profile onSignOut={handleSignOut} />
+				<Profile onSignOut={handleSignOut} activeUser={$activeUser} />
 			</Col>
 		</Row>
 	);

@@ -8,9 +8,12 @@ import { IProfile } from "./types";
 // Styles
 import "./styles.less";
 
-const Profile: FC<IProfile> = ({ onSignOut }) => {
+const Profile: FC<IProfile> = ({ onSignOut, activeUser }) => {
+	const { photoURL, displayName, email, phoneNumber } = activeUser;
+
 	return (
 		<div style={{ width: "100%", marginTop: "2rem" }}>
+			{console.log(activeUser)}
 			<Row>
 				<Col span={20}>
 					<h2> Mi cuenta </h2>
@@ -24,25 +27,24 @@ const Profile: FC<IProfile> = ({ onSignOut }) => {
 
 			<Col span={24}>
 				<Row justify="center">
-					<Avatar size={128} icon={<UserOutlined />} />
+					<Avatar size={128} icon={<UserOutlined />} src={photoURL} />
 				</Row>
 				<Row justify="center">
-					<h3>Juan Domingo</h3>
-					<h4>comprador</h4>
+					<h3>{displayName}</h3>
 				</Row>
 			</Col>
 
-			<Col span={24}>
-				<Col span={12}>
+			<Divider type="horizontal" orientation="center" />
+			<Row>
+				<Col span={8}>
 					<div>
 						<h4>Correo</h4>
-						<span>juan.domingo@peron.net</span>
+						<span>{email}</span>
 						<h4>Telefono</h4>
-						<span>+54 11 77845840</span>
-						{/* <Divider type="vertical" /> */}
+						<span>{phoneNumber ?? "-"}</span>
 					</div>
 				</Col>
-				<Col span={12}>
+				<Col span={8}>
 					<div>
 						<h4>Direccion</h4>
 						<span>Avenida de Mayo 678</span>
@@ -50,7 +52,7 @@ const Profile: FC<IProfile> = ({ onSignOut }) => {
 						<span>VERIFICADO</span>
 					</div>
 				</Col>
-			</Col>
+			</Row>
 		</div>
 	);
 };
