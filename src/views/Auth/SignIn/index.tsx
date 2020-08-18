@@ -2,6 +2,8 @@
 import React, { useEffect } from "react";
 // Components
 import SignInForm from "components/Auth/SignInForm";
+// Custom Hooks
+import { useNavbar } from "hooks";
 // AntD
 import { Row, Col, Typography } from "antd";
 // Router
@@ -17,6 +19,7 @@ const { Title } = Typography;
 const SignInView = () => {
 	const d = useDispatch();
 	const h = useHistory();
+	const { session } = useNavbar();
 
 	const handleSubmit = ({ username, password }: User) => {
 		// d(requestSignIn({ username, password }));
@@ -30,9 +33,7 @@ const SignInView = () => {
 	};
 
 	useEffect(() => {
-		if (sessionStorage.getItem("session_active")) {
-			h.push("/");
-		}
+		session && h.push("/");
 	}, []);
 
 	return (
