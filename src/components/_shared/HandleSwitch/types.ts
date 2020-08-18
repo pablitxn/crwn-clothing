@@ -1,3 +1,5 @@
+import { IRouteWithSubRoutes } from "components/_shared/RouteWithSubRoutes/types"
+
 export interface IHandleSwitch {
-  routes: any;
+  routes: Array<IRouteWithSubRoutes>
 }

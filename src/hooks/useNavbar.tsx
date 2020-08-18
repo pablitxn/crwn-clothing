@@ -7,7 +7,7 @@ import { activeUserSelector } from "state/session/selectors";
 import { useHistory } from "react-router-dom";
 
 type HandleClick = (event: MenuEvent) => void;
-type handleNavigation = (route: string) => void;
+type HandleNavigation = (route: string) => void;
 
 type MenuEvent = {
 	item: any;
@@ -22,7 +22,7 @@ export const useNavbar = () => {
 	const h = useHistory();
 	const session = !!$activeUser;
 
-	const handleNavigation: handleNavigation = (route) => {
+	const handleNavigation: HandleNavigation = (route) => {
 		switch (route) {
 			case "/":
 				h.push("/");

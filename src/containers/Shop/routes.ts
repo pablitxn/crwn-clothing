@@ -1,12 +1,13 @@
 // React Lazy
 import { lazy } from "react";
+// Types
+import { IRouteWithSubRoutes } from "components/_shared/RouteWithSubRoutes/types"
 // Views
-const Shop = lazy(() => import("views/Shop"));
-const Products = lazy(() => import("views/Shop/Products"));
-const Cart = lazy(() => import("views/Shop/Cart"));
-const Checkout = lazy(() => import("views/Shop/Checkout"));
+const Shop = lazy(() => import("views/Shop"))
+const Products = lazy(() => import("views/Shop/Products"))
+const Cart = lazy(() => import("views/Shop/Cart"))
 
-export default [
+const routes: Array<IRouteWithSubRoutes> = [
   {
     path: "/",
     component: Shop,
@@ -18,9 +19,8 @@ export default [
   {
     path: "/cart",
     component: Cart,
-  },
-  {
-    path: "/checkout",
-    component: Checkout,
-  },
-];
+  }
+]
+
+
+export default routes

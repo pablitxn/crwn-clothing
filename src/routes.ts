@@ -8,7 +8,10 @@ import SessionContainer from "containers/Auth";
 import ShopContainer from "containers/Shop";
 import MyAccountContainer from "containers/MyAccount";
 
-export default [
+// Types
+import { IRouteWithSubRoutes } from "components/_shared/RouteWithSubRoutes/types";
+
+const routes: Array<IRouteWithSubRoutes> = [
   {
     path: "/",
     component: ShopContainer,
@@ -25,4 +28,6 @@ export default [
     component: MyAccountContainer,
     routes: myAccountRoutes,
   }
-];
+]
+
+export default routes

@@ -1,7 +1,13 @@
-export type Route = {
-  path?: string
-  component?: any
-  props?: any
-  routes?: Array<Route>
+import { LazyExoticComponent, FC } from "react"
+
+export interface IRouteWithSubRoutes {
+  path: string
+  exact?: boolean
+  component: LazyExoticComponent<any> | FC<any>
+  props?: Props
+  routes?: Array<IRouteWithSubRoutes>
 }
 
+type Props = {
+  ["key"]: any
+}

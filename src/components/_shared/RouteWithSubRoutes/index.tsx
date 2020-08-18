@@ -2,15 +2,15 @@ import React from "react";
 // Custom Components
 import { Route } from "react-router-dom";
 // Types
-import { Route as RouteTypes } from "./types";
+import { IRouteWithSubRoutes } from "./types";
 
-const RouteWithSubRoutes = (route: RouteTypes) => {
+const RouteWithSubRoutes = (route: IRouteWithSubRoutes) => {
 	return (
 		<Route
 			path={route.path}
-			render={(props) => (
-				<route.component {...props} props={route.props} routes={route.routes} />
-			)}
+			render={(props) => {
+				return <route.component {...props} props={route.props} routes={route.routes} />;
+			}}
 		/>
 	);
 };
